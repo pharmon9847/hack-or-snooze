@@ -21,6 +21,7 @@ function navLoginClick(evt) {
   hidePageComponents();
   $loginForm.show();
   $signupForm.show();
+  $storiesContainer.hide();
 }
 
 $navLogin.on("click", navLoginClick);
@@ -34,3 +35,43 @@ function updateNavOnLogin() {
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
+
+// * create several functions to handle events on the nav bar
+// we need one for clicking on favorites
+// we need one for clicking on 'my stories'
+// we need one for clicking on user profile
+// we need one for submitting a story
+
+// Clicking on the favorites button
+function navbarClickOnFavorite(event) {
+  hidePageComponents();
+  putFavoritesListOnPage();
+}
+
+$body.on("click", "#nav-favorites", navbarClickOnFavorite);
+
+// clicking on the 'my stories' button
+function navbarClickOnMyStories(event) {
+  hidePageComponents();
+  putUserStoriesOnPage();
+  $ownStories.show();
+}
+
+$body.on("click", "nav-my-stories".navbarClickOnMyStories);
+
+// clicking on profile button
+function navbarClickOnProfile(event) {
+  hidePageComponents();
+  $userProfile.show();
+}
+
+$navUserProfile.on("click", navbarClickOnProfile);
+
+// clicking the submit story button
+function navbarSubmitStoryClick(event) {
+  hidePageComponents();
+  $allStoriesList.show();
+  $submitForm.show();
+}
+
+$navSubmitStory.on("click", navbarSubmitStoryClick);
