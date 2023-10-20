@@ -19,7 +19,7 @@ async function getAndShowStoriesOnStart() {
  * Returns the markup for the story.
  */
 
-function generateStoryMarkup(story showDeleteBtn = false) {
+function generateStoryMarkup(story, showDeleteBtn = false) {
   // console.debug("generateStoryMarkup", story);
 
   const hostName = story.getHostName();
