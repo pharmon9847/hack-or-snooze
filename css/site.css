@@ -3,6 +3,11 @@
 body {
   font-family: Arimo, sans-serif;
   margin: 8px 7.5vw;
+  background-image: radial-gradient(
+    circle,
+    rgb(239, 185, 9) 0%,
+    rgb(9, 216, 239) 100%
+  );
 }
 
 h1 {
