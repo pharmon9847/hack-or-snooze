@@ -27,6 +27,7 @@ function navSubmitStoryClick(evt) {
   console.debug("navSubmitStoryClick", evt);
   hidePageComponents();
   $allStoriesList.show();
+  // $allStoriesList.hide();
   $submitForm.show();
 }
 
