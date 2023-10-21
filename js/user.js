@@ -117,6 +117,7 @@ function saveUserCredentialsInLocalStorage() {
 
 // * my code for setting up the UI
 async function updateUIOnUserLogin() {
+  console.debug("updateUIOnUserLogin");
   hidePageComponents();
 
   putStoriesOnPage();
@@ -129,6 +130,7 @@ async function updateUIOnUserLogin() {
 
 // * my code for showing user's information
 function generateUserProfile() {
+  console.debug("generateUserProfile");
   $("#profile-name").text(currentUser.name);
   $("#profile-username").text(currentUser.username);
   $("#profile-account-date").text(currentUser.createdAt.slice(0, 10));

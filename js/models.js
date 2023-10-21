@@ -89,13 +89,22 @@ class StoryList {
 
     return story;
   }
+
+  async editStory(user, { storyId, title, author, url }) {
+    const token = user.loginToken;
+    const response = await axios({
+      method: "PATCH",
+      url: `${BASE_URL}/stories/${storyId}`,
+      data: { token, story: { title, author, url } },
+    });
+  }
   // * End my code for addStory() **
 
   // * My Code **
   //  create function to delete story
   // remove the story from the list of stories
 
-  async deleteStory(user, storyId) {
+  async removeStory(user, storyId) {
     const token = user.loginToken;
     await axios({
       url: `${BASE_URL}/stories/${storyId}`,

@@ -16,6 +16,45 @@ $body.on("click", "#nav-all", navAllStories);
 
 /** Show login/signup on click on "login" */
 
+// * create several functions to handle events on the nav bar
+// we need one for clicking on favorites
+// we need one for clicking on 'my stories'
+// we need one for clicking on user profile
+// we need one for submitting a story
+
+// * create a function that shows form to submit a story
+function navSubmitStoryClick(evt) {
+  console.debug("navSubmitStoryClick", evt);
+  hidePageComponents();
+  $allStoriesList.show();
+  $submitForm.show();
+}
+
+$navSubmitStory.on("click", navSubmitStoryClick);
+
+// * create a function for clicking on favorites
+// Clicking on the favorites button
+function navFavoritesClick(evt) {
+  console.debug("navFavoritesClick", evt);
+  hidePageComponents();
+  putFavoritesListOnPage();
+}
+
+$body.on("click", "#nav-favorites", navFavoritesClick);
+
+// * create a function for clicking on my stories
+// clicking on the 'my stories' button
+function navMyStories(evt) {
+  console.debug("navMyStories", evt);
+  hidePageComponents();
+  putUserStoriesOnPage();
+  $ownStories.show();
+}
+
+$body.on("click", "#nav-my-stories", navMyStories);
+
+// *********
+
 function navLoginClick(evt) {
   console.debug("navLoginClick", evt);
   hidePageComponents();
@@ -30,48 +69,19 @@ $navLogin.on("click", navLoginClick);
 
 function updateNavOnLogin() {
   console.debug("updateNavOnLogin");
-  $(".main-nav-links").show();
+  $(".main-nav-links").css("display", "flex");
   $navLogin.hide();
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
-// * create several functions to handle events on the nav bar
-// we need one for clicking on favorites
-// we need one for clicking on 'my stories'
-// we need one for clicking on user profile
-// we need one for submitting a story
-
-// Clicking on the favorites button
-function navbarClickOnFavorite(event) {
-  hidePageComponents();
-  putFavoritesListOnPage();
-}
-
-$body.on("click", "#nav-favorites", navbarClickOnFavorite);
-
-// clicking on the 'my stories' button
-function navbarClickOnMyStories(event) {
-  hidePageComponents();
-  putUserStoriesOnPage();
-  $ownStories.show();
-}
-
-$body.on("click", "nav-my-stories".navbarClickOnMyStories);
-
 // clicking on profile button
-function navbarClickOnProfile(event) {
+function navProfileClick(evt) {
+  console.debug("navProfileClick", evt);
   hidePageComponents();
   $userProfile.show();
 }
 
-$navUserProfile.on("click", navbarClickOnProfile);
+$navUserProfile.on("click", navProfileClick);
 
 // clicking the submit story button
-function navbarSubmitStoryClick(event) {
-  hidePageComponents();
-  $allStoriesList.show();
-  $submitForm.show();
-}
-
-$navSubmitStory.on("click", navbarSubmitStoryClick);

@@ -7,8 +7,27 @@ const $body = $("body");
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
 
+// * my code
+const $favoritedStories = $("#favorited-stories");
+const $ownStories = $("#my-stories");
+const $storiesContainer = $("#stories-container");
+
+const $storiesLists = $(".stories-list");
+
+const $storyEditForm = $("#story-edit-form");
+const $storyEditTitle = $("#story-edit-title");
+const $storyEditAuthor = $("#story-edit-author");
+const $storyEditURL = $("#story-edit-url");
+const $storyEditId = $("#story-edit-id");
+
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
+
+const $submitForm = $("#submit-form");
+const $navSubmitStory = $("#nav-submit-story");
+const $userProfile = $("#user-profile");
+
+// ***********************
 
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
@@ -21,11 +40,16 @@ const $navLogOut = $("#nav-logout");
 
 function hidePageComponents() {
   const components = [
-    $allStoriesList,
+    // *my code
+    $storiesLists,
+    $submitForm,
+    // $allStoriesList,
     $loginForm,
     $signupForm,
+    $userProfile,
+    $storyEditForm,
   ];
-  components.forEach(c => c.hide());
+  components.forEach((c) => c.hide());
 }
 
 /** Overall function to kick off the app. */
@@ -43,8 +67,10 @@ async function start() {
 
 // Once the DOM is entirely loaded, begin the app
 
-console.warn("HEY STUDENT: This program sends many debug messages to" +
-  " the console. If you don't see the message 'start' below this, you're not" +
-  " seeing those helpful debug messages. In your browser console, click on" +
-  " menu 'Default Levels' and add Verbose");
+console.warn(
+  "HEY STUDENT: This program sends many debug messages to" +
+    " the console. If you don't see the message 'start' below this, you're not" +
+    " seeing those helpful debug messages. In your browser console, click on" +
+    " menu 'Default Levels' and add Verbose"
+);
 $(start);

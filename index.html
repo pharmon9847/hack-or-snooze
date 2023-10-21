@@ -47,7 +47,7 @@
       <div class="nav-right">
         <a class="nav-link" href="#" id="nav-login">login/signup</a>
         <a class="nav-link" href="#" id="nav-user-profile"></a>
-        <a class="hidden" id="nav-logout" href="#"><small>|logout|</small></a>
+        <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
       </div>
     </nav>
 
@@ -105,6 +105,38 @@
         </div>
         <button type="submit">login</button>
         <hr />
+      </form>
+
+      <!--Edit Story Form-->
+      <form
+        action="#"
+        id="story-edit-form"
+        class="story-edit-form hidden"
+        method="post"
+      >
+        <h4>Edit Story</h4>
+        <div class="story-edit-input hidden">
+          <label for="story-edit-id"></label>
+          <input id="story-edit-id" value="" />
+        </div>
+        <div class="story-edit-input">
+          <label for="story-edit-title">Edit Title</label>
+          <input id="story-edit-title" placeholder="New Story Title" value="" />
+        </div>
+        <div class="story-edit-author">
+          <label for="story-edit-author">Edit Author</label>
+          <input id="story-edit-author" placeholder="New Author" value="" />
+        </div>
+        <div class="story-edit-url">
+          <label for="story-edit-url">Edit URL</label>
+          <input
+            id="story-edit-url"
+            type="url"
+            placeholder="New Story URL"
+            value=""
+          />
+        </div>
+        <button type="submit">Edit Story</button>
       </form>
 
       <!-- Signup form -->
