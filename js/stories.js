@@ -134,7 +134,7 @@ function putUserStoriesOnPage() {
   $ownStories.empty();
 
   if (currentUser.ownStories.length === 0) {
-    $ownStories.append("<h5>User has not submitted any stories yet</h5>");
+    $ownStories.append("<h4>User has not submitted any stories yet</h4>");
   } else {
     for (let story of currentUser.ownStories) {
       let $story = generateStoryMarkup(story, true);

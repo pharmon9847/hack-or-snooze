@@ -12,6 +12,14 @@ nav {
   font-weight: bold;
 }
 
+.main-nav-links {
+  margin: 0 10px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+}
+
 .nav-link {
   font-size: 0.85rem;
   margin: 0 3px;
@@ -20,4 +28,6 @@ nav {
 .nav-right {
   margin-left: auto;
   text-align: right;
+  color: yellow;
+  font-weight: bold;
 }
