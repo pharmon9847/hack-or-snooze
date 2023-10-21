@@ -5,4 +5,4 @@ In this exercise, you’ll add features to a news-aggregator site (based loosely
 ---
 The app was built with JavaScript, CSS, HTML, jQuery
 
-![Screenshot 2023-10-21 at 7 10 01 PM](https://github.com/pharmon9847/hack-or-snooze/assets/55819132/630f8b7f-db97-4c92-844d-9fcae1ae0283)
+![Screenshot 2023-10-21 at 7 31 06 PM](https://github.com/pharmon9847/hack-or-snooze/assets/55819132/5ec4aa7c-384d-4efc-b34c-cac53c53bd50)
