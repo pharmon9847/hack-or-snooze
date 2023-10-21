@@ -17,7 +17,7 @@ nav {
   font-size: 20px;
   justify-content: center;
   align-items: center;
-  color: blue;
+  color: black;
 }
 
 .nav-link {
@@ -28,6 +28,5 @@ nav {
 .nav-right {
   margin-left: auto;
   text-align: right;
-  color: yellow;
-  font-weight: bold;
+  color: black;
 }

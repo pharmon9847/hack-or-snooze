@@ -25,11 +25,6 @@
   color: red;
 }
 
-/* #create-title {
-  font-weight: bold;
-  color: black;
-} */
-
 /* Individual stories */
 
 .story-link {
@@ -46,7 +41,7 @@
 .story-author {
   margin-left: 2em;
   font-size: 0.85rem;
-  color: red;
+  color: green;
   padding: 6px 0;
 }
 
@@ -54,7 +49,7 @@
   display: block;
   margin-left: 2em;
   font-size: 0.85rem;
-  color: blue;
+  color: orange;
 }
 
 .star,

@@ -31,14 +31,14 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
       <li id="${story.storyId}">
         <div>
         ${showDeleteBtn ? getDeleteBtnHTML() : ""}
-        ${getEditBtnHTML(currentUser, story.storyId)}
         ${showFavoriteStar ? getStarHTML(story, currentUser) : ""}
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
+        ${getEditBtnHTML(currentUser, story.storyId)}
         <small class="story-hostname">(${hostName})</small>
-        <small class="story-author">by ${story.author}</small>
-        <small class="story-user">posted by ${story.username}</small>
+        <div class="story-author">by ${story.author}</div>
+        <div class="story-user">posted by ${story.username}</div>
         </div>
       </li>
     `);

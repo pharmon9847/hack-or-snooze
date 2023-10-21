@@ -21,18 +21,3 @@
 .user-profile-box > * {
   margin: 10px 0;
 }
-
-#profile-name {
-  color: red;
-  font-weight: bold;
-}
-
-#profile-username {
-  color: red;
-  font-weight: bold;
-}
-
-#profile-account-date {
-  color: red;
-  font-weight: bold;
-}
