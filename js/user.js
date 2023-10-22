@@ -9,9 +9,9 @@ let currentUser;
 
 /** Handle login form submission. If login ok, sets up the user instance */
 
-async function login(evt) {
-  console.debug("login", evt);
-  evt.preventDefault();
+async function login(event) {
+  console.debug("login", event);
+  event.preventDefault();
 
   // grab the username and password
   const username = $("#login-username").val();
@@ -31,9 +31,9 @@ $loginForm.on("submit", login);
 
 /** Handle signup form submission. */
 
-async function signup(evt) {
-  console.debug("signup", evt);
-  evt.preventDefault();
+async function signup(event) {
+  console.debug("signup", event);
+  event.preventDefault();
 
   const name = $("#signup-name").val();
   const username = $("#signup-username").val();
@@ -56,8 +56,8 @@ $signupForm.on("submit", signup);
  * Remove their credentials from localStorage and refresh page
  */
 
-function logout(evt) {
-  console.debug("logout", evt);
+function logout(event) {
+  console.debug("logout", event);
   localStorage.clear();
   location.reload();
 }

@@ -25,6 +25,7 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
   const hostName = story.getHostName();
 
   // * My code ***
+  // if a user is logged in, show favorite/not-favorite star
   const showFavoriteStar = Boolean(currentUser);
 
   return $(`
@@ -45,6 +46,7 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
 }
 
 // * my code for creating a delete button
+// create function that makes the HTML for the delete button
 function getDeleteBtnHTML() {
   return `
     <span class="trash-can">
@@ -53,6 +55,7 @@ function getDeleteBtnHTML() {
 }
 
 // * my code for the favorites star
+// create function that makes the HTML for the star
 function getStarHTML(story, user) {
   const isFavorite = user.isFavorite(story);
   const typeOfStar = isFavorite ? "fas" : "far";
@@ -61,9 +64,9 @@ function getStarHTML(story, user) {
       <i class="${typeOfStar} fa-star"></i>
     </span>`;
 }
-// *****
 
 // * my code for an edit button
+// create function that makes the HTML for the edit button
 function getEditBtnHTML(currentUser, storyId) {
   if (
     currentUser &&
@@ -94,14 +97,18 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
+/** Handle deleting a story. */
+
 // * my code for deleting a story
 async function deleteStory(event) {
   console.debug("deleteStory");
+
   const $closestLi = $(event.target).closest("li");
   const storyId = $closestLi.attr("id");
 
-  await storyList.removeStory(currentUser, storyId);
+  await storyList.deleteStory(currentUser, storyId);
 
+  // re-generate story list
   await putUserStoriesOnPage();
 }
 
@@ -109,10 +116,14 @@ $ownStories.on("click", ".trash-can", deleteStory);
 $allStoriesList.on("click", ".trash-can", deleteStory);
 $favoritedStories.on("click", ".trash-can", deleteStory);
 
+/** Handle submitting new story form. */
+
 // * my code for submitting a story
 async function submitNewStory(event) {
+  console.debug("submitNewStory");
   event.preventDefault();
 
+  // get all the information from the form
   const title = $("#create-title").val();
   const url = $("#create-url").val();
   const author = $("#create-author").val();
@@ -123,6 +134,7 @@ async function submitNewStory(event) {
   const $story = generateStoryMarkup(story);
   $allStoriesList.prepend($story);
 
+  // we now want to hide the form and reset it
   $submitForm.slideUp("slow");
   $submitForm.trigger("reset");
 }
@@ -161,17 +173,25 @@ function putFavoritesListOnPage() {
   $favoritedStories.show();
 }
 
+/** Handle favorite/un-favorite a story */
+
 // * my code making a story a favorite or removing favorite from story
 async function addRemoveFavoriteStory(event) {
+  console.debug("addRemoveFavoriteStory");
+
   const $tgt = $(event.target);
   const $closestLi = $tgt.closest("li");
   const storyId = $closestLi.attr("id");
   const story = storyList.stories.find((s) => s.storyId === storyId);
 
+  // use if/else conditional to see if story is favorite
+  // check to see if the star is present to indicate favorite
   if ($tgt.hasClass("fas")) {
+    // the story is a favorite, so change the star and remove from favorites list
     await currentUser.removeFavorite(story);
     $tgt.closest("i").toggleClass("fas far");
   } else {
+    // the story is not a favorite, do opposite of the if statement
     await currentUser.addFavorite(story);
     $tgt.closest("i").toggleClass("fas far");
   }
@@ -179,10 +199,12 @@ async function addRemoveFavoriteStory(event) {
 
 $storiesLists.on("click", ".star", addRemoveFavoriteStory);
 
+// create function to handle editing user story
 async function submitEditStoryForm(event) {
   console.debug("submitEditStoryForm");
   event.preventDefault();
 
+  // get new values
   const storyId = $("#story-edit-id").val();
   const title = $("#story-edit-title").val();
   const author = $("#story-edit-author").val();
@@ -194,11 +216,13 @@ async function submitEditStoryForm(event) {
     author,
     url,
   });
+  // regenerate the story list
   start();
 }
 
 $storyEditForm.on("submit", submitEditStoryForm);
 
+// create function to handle click event on edit form
 function editStoryFormClick(event) {
   console.debug("editStoryFormClick", event);
   hidePageComponents();

@@ -6,8 +6,8 @@
 
 /** Show main list of all stories when click site name */
 
-function navAllStories(evt) {
-  console.debug("navAllStories", evt);
+function navAllStories(event) {
+  console.debug("navAllStories", event);
   hidePageComponents();
   putStoriesOnPage();
 }
@@ -22,9 +22,10 @@ $body.on("click", "#nav-all", navAllStories);
 // we need one for clicking on user profile
 // we need one for submitting a story
 
+/** Show story submit form on clicking story "submit" */
 // * create a function that shows form to submit a story
-function navSubmitStoryClick(evt) {
-  console.debug("navSubmitStoryClick", evt);
+function navSubmitStoryClick(event) {
+  console.debug("navSubmitStoryClick", event);
   hidePageComponents();
   $allStoriesList.show();
   // $allStoriesList.hide();
@@ -35,8 +36,8 @@ $navSubmitStory.on("click", navSubmitStoryClick);
 
 // * create a function for clicking on favorites
 // Clicking on the favorites button
-function navFavoritesClick(evt) {
-  console.debug("navFavoritesClick", evt);
+function navFavoritesClick(event) {
+  console.debug("navFavoritesClick", event);
   hidePageComponents();
   putFavoritesListOnPage();
 }
@@ -45,8 +46,8 @@ $body.on("click", "#nav-favorites", navFavoritesClick);
 
 // * create a function for clicking on my stories
 // clicking on the 'my stories' button
-function navMyStories(evt) {
-  console.debug("navMyStories", evt);
+function navMyStories(event) {
+  console.debug("navMyStories", event);
   hidePageComponents();
   putUserStoriesOnPage();
   $ownStories.show();
@@ -54,10 +55,10 @@ function navMyStories(evt) {
 
 $body.on("click", "#nav-my-stories", navMyStories);
 
-// *********
+/** Show login/signup on click on "login" */
 
-function navLoginClick(evt) {
-  console.debug("navLoginClick", evt);
+function navLoginClick(event) {
+  console.debug("navLoginClick", event);
   hidePageComponents();
   $loginForm.show();
   $signupForm.show();
@@ -76,13 +77,13 @@ function updateNavOnLogin() {
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
+/** Hide everything but profile on click on "profile" */
+
 // clicking on profile button
-function navProfileClick(evt) {
-  console.debug("navProfileClick", evt);
+function navProfileClick(event) {
+  console.debug("navProfileClick", event);
   hidePageComponents();
   $userProfile.show();
 }
 
 $navUserProfile.on("click", navProfileClick);
-
-// clicking the submit story button
