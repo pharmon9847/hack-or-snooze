@@ -103,6 +103,7 @@ class StoryList {
   async editStory(user, { storyId, title, author, url }) {
     const token = user.loginToken;
     const response = await axios({
+      // the patch method makes a partial change, i.e. editing the story
       method: "PATCH",
       url: `${BASE_URL}/stories/${storyId}`,
       data: { token, story: { title, author, url } },
@@ -124,11 +125,14 @@ class StoryList {
     });
 
     // use the filter() method to find the storyId we want to delete
+    // the strict inequality operator checks if the two are not equal and returns a boolean value
     this.stories = this.stories.filter((story) => story.storyId !== storyId);
 
     // use the filter() method to find the story we want to delete from users stories
+    // the strict inequality operator checks if the two are not equal and returns a boolean value
     user.ownStories = user.ownStories.filter((s) => s.storyId !== storyId);
     // use the filter() method to find the story we want to delete from favorites
+    // the strict inequality operator checks if the two are not equal and returns a boolean value
     user.favorites = user.favorites.filter((s) => s.storyId !== storyId);
   }
 }
@@ -152,6 +156,7 @@ class User {
     this.createdAt = createdAt;
 
     // instantiate Story instances for the user's favorites and ownStories
+    // the map() method creates a new array with the results of calling a function on every element in the calling array
     this.favorites = favorites.map((s) => new Story(s));
     this.ownStories = ownStories.map((s) => new Story(s));
 
@@ -282,6 +287,7 @@ class User {
     // assign that behavior to the 'method' variable
     const method = newState === "add" ? "POST" : "DELETE";
     const token = this.loginToken;
+    // this api call will use the result of the ternary operator to determine which api method to use
     await axios({
       url: `${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
       // now we can use the 'method' variable which has two behaviors

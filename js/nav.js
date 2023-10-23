@@ -34,6 +34,7 @@ function navSubmitStoryClick(event) {
   $submitForm.show();
 }
 
+// create event listener for the submit story button
 $navSubmitStory.on("click", navSubmitStoryClick);
 
 // TODO create a function for clicking on favorites
@@ -45,6 +46,7 @@ function navFavoritesClick(event) {
   putFavoritesListOnPage();
 }
 
+// create event listener for clicking the favorites star
 $body.on("click", "#nav-favorites", navFavoritesClick);
 
 // TODO create a function for clicking on my stories
@@ -57,6 +59,7 @@ function navMyStories(event) {
   $ownStories.show();
 }
 
+// create event listenenr for clicking on my stoies button
 $body.on("click", "#nav-my-stories", navMyStories);
 
 /** Show login/signup on click on "login" */
@@ -69,6 +72,7 @@ function navLoginClick(event) {
   $storiesContainer.hide();
 }
 
+// creat event listener for clicking on login button
 $navLogin.on("click", navLoginClick);
 
 /** When a user first logins in, update the navbar to reflect that. */
@@ -92,4 +96,5 @@ function navProfileClick(event) {
   $userProfile.show();
 }
 
+// create event listener for clicking on the profile button (user name)
 $navUserProfile.on("click", navProfileClick);

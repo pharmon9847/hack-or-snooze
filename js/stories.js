@@ -29,6 +29,7 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
 
   // * My code
   // if a user is logged in, show favorite/not-favorite star
+  // using the Boolean() constructor here means we are assigning the true value to the variable
   const showFavoriteStar = Boolean(currentUser);
 
   return $(`
@@ -79,6 +80,8 @@ function getStarHTML(story, user) {
 function getEditBtnHTML(currentUser, storyId) {
   if (
     currentUser &&
+    // using the some() method will test to see if at least one element in the array passes
+    // the implemented function and if at least one does, it returns true
     currentUser.ownStories.some((s) => s.storyId === storyId)
   ) {
     return `
@@ -152,6 +155,7 @@ async function submitNewStory(event) {
   $submitForm.trigger("reset");
 }
 
+// create event listener for when user hits the submit button
 $submitForm.on("submit", submitNewStory);
 
 // TODO create a function for showing user's stories
@@ -161,6 +165,7 @@ function putUserStoriesOnPage() {
   $ownStories.empty();
 
   if (currentUser.ownStories.length === 0) {
+    // if there are no stories to show, display this message
     $ownStories.append("<h4>User has not submitted any stories yet</h4>");
   } else {
     for (let story of currentUser.ownStories) {
@@ -178,6 +183,7 @@ function putFavoritesListOnPage() {
   $favoritedStories.empty();
 
   if (currentUser.favorites.length === 0) {
+    // if there are no favorites, display this message
     $favoritedStories.append(
       "<h4>User has not added any favorite stories yet</h4>"
     );
@@ -216,6 +222,7 @@ async function addRemoveFavoriteStory(event) {
   }
 }
 
+// create event listener for when user hits the favorites star
 $storiesLists.on("click", ".star", addRemoveFavoriteStory);
 
 // TODO create a function to handle when user edits a story
@@ -241,6 +248,7 @@ async function submitEditStoryForm(event) {
   start();
 }
 
+// create event listener for when user hits the 'edit story' button
 $storyEditForm.on("submit", submitEditStoryForm);
 
 // TODO create a function to handle a user clicking the edit button/icon
