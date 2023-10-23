@@ -24,6 +24,7 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
+    // TODO
     // * My Code **
     // gives the URL of the site the user submitted
     return new URL(this.url).host;
@@ -75,6 +76,8 @@ class StoryList {
    */
 
   async addStory(user, { title, author, url }) {
+    // TODO write addStory() function
+
     // * My code **
     // UNIMPLEMENTED: complete this function!
     const token = user.loginToken;
@@ -93,6 +96,8 @@ class StoryList {
     return story;
   }
 
+  // TODO create function for editing user story
+
   // * my code **
   // function to edit the user's story
   async editStory(user, { storyId, title, author, url }) {
@@ -103,6 +108,8 @@ class StoryList {
       data: { token, story: { title, author, url } },
     });
   }
+
+  // TODO create function for deleting story
 
   // * My Code **
   //  create function to delete story
@@ -240,6 +247,9 @@ class User {
   /** Add a story to the list of user favorites and update the API
    * - story: a Story instance to add to favorites
    */
+
+  // TODO create function for adding a story to favorites
+
   // * My code for addFavorite()
   // create function to add a particular story to the favorites list
   async addFavorite(story) {
@@ -248,6 +258,8 @@ class User {
     await this._addOrRemoveFavorite("add", story);
   }
   // ***
+
+  // TODO create function for removing favorite from favorites list
 
   // * my code for removeFavorite()
   // create function to remove a particular story from the favorites list
@@ -260,6 +272,9 @@ class User {
    *   - newState: "add" or "remove"
    *   - story: Story instance to make favorite / not favorite
    * */
+
+  // TODO create function for updating api with favorite or not favorite
+
   // * my code for _addOrRemoveFavorite()
   // create function that handles both the adding and deleting of a story to favorites list
   async _addOrRemoveFavorite(newState, story) {
@@ -275,11 +290,12 @@ class User {
     });
   }
 
+  // TODO  determine whether given story instance is a user's favorite
+
   /** Return true/false if given Story instance is a favorite of this user. */
   // * my code for isFavorite()
   // create a boolean value for whether the particular story is a favorite or not
   isFavorite(story) {
     return this.favorites.some((s) => s.storyId === story.storyId);
   }
-  // *****
 }

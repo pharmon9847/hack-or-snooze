@@ -16,14 +16,16 @@ $body.on("click", "#nav-all", navAllStories);
 
 /** Show login/signup on click on "login" */
 
+// TODO
 // * create several functions to handle events on the nav bar
 // we need one for clicking on favorites
 // we need one for clicking on 'my stories'
 // we need one for clicking on user profile
 // we need one for submitting a story
 
+// TODO create a function that shows form to submit a story
+
 /** Show story submit form on clicking story "submit" */
-// * create a function that shows form to submit a story
 function navSubmitStoryClick(event) {
   console.debug("navSubmitStoryClick", event);
   hidePageComponents();
@@ -34,7 +36,8 @@ function navSubmitStoryClick(event) {
 
 $navSubmitStory.on("click", navSubmitStoryClick);
 
-// * create a function for clicking on favorites
+// TODO create a function for clicking on favorites
+
 // Clicking on the favorites button
 function navFavoritesClick(event) {
   console.debug("navFavoritesClick", event);
@@ -44,7 +47,8 @@ function navFavoritesClick(event) {
 
 $body.on("click", "#nav-favorites", navFavoritesClick);
 
-// * create a function for clicking on my stories
+// TODO create a function for clicking on my stories
+
 // clicking on the 'my stories' button
 function navMyStories(event) {
   console.debug("navMyStories", event);
@@ -78,6 +82,8 @@ function updateNavOnLogin() {
 }
 
 /** Hide everything but profile on click on "profile" */
+
+// TODO create function for showing user's profile
 
 // clicking on profile button
 function navProfileClick(event) {

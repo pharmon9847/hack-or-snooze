@@ -4,6 +4,8 @@
 
 const $body = $("body");
 
+// TODO find all DOM elements
+
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
 

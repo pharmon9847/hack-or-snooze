@@ -24,7 +24,10 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
 
   const hostName = story.getHostName();
 
-  // * My code ***
+  // TODO show favorite star if user is logged in
+  // TODO add buttons/icons to storyMarkup
+
+  // * My code
   // if a user is logged in, show favorite/not-favorite star
   const showFavoriteStar = Boolean(currentUser);
 
@@ -45,6 +48,8 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
     `);
 }
 
+// TODO create a delete button/icon
+
 // * my code for creating a delete button
 // create function that makes the HTML for the delete button
 function getDeleteBtnHTML() {
@@ -53,6 +58,8 @@ function getDeleteBtnHTML() {
       <i class="fas fa-trash-alt"></i>
     </span>`;
 }
+
+// TODO create a favorites star/icon
 
 // * my code for the favorites star
 // create function that makes the HTML for the star
@@ -64,6 +71,8 @@ function getStarHTML(story, user) {
       <i class="${typeOfStar} fa-star"></i>
     </span>`;
 }
+
+// TODO create an edit button/icon
 
 // * my code for an edit button
 // create function that makes the HTML for the edit button
@@ -97,6 +106,8 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
+// TODO create function to handle deleting a story
+
 /** Handle deleting a story. */
 
 // * my code for deleting a story
@@ -115,6 +126,8 @@ async function deleteStory(event) {
 $ownStories.on("click", ".trash-can", deleteStory);
 $allStoriesList.on("click", ".trash-can", deleteStory);
 $favoritedStories.on("click", ".trash-can", deleteStory);
+
+// TODO create a function for submitting a story
 
 /** Handle submitting new story form. */
 
@@ -141,6 +154,8 @@ async function submitNewStory(event) {
 
 $submitForm.on("submit", submitNewStory);
 
+// TODO create a function for showing user's stories
+
 // * my code for showing user stories
 function putUserStoriesOnPage() {
   $ownStories.empty();
@@ -155,6 +170,8 @@ function putUserStoriesOnPage() {
   }
   $ownStories.show();
 }
+
+// TODO create a function for showing user's favorites
 
 // * my code for showing users favorites
 function putFavoritesListOnPage() {
@@ -172,6 +189,8 @@ function putFavoritesListOnPage() {
   }
   $favoritedStories.show();
 }
+
+// TODO create function to handle when a user favorites or un-favorites a story
 
 /** Handle favorite/un-favorite a story */
 
@@ -199,6 +218,8 @@ async function addRemoveFavoriteStory(event) {
 
 $storiesLists.on("click", ".star", addRemoveFavoriteStory);
 
+// TODO create a function to handle when user edits a story
+
 // create function to handle editing user story
 async function submitEditStoryForm(event) {
   console.debug("submitEditStoryForm");
@@ -221,6 +242,8 @@ async function submitEditStoryForm(event) {
 }
 
 $storyEditForm.on("submit", submitEditStoryForm);
+
+// TODO create a function to handle a user clicking the edit button/icon
 
 // create function to handle click event on edit form
 function editStoryFormClick(event) {

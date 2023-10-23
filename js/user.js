@@ -115,6 +115,8 @@ function saveUserCredentialsInLocalStorage() {
 //   updateNavOnLogin();
 // }
 
+// TODO create function for setting up the UI
+
 // * my code for setting up the UI
 async function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
@@ -127,6 +129,8 @@ async function updateUIOnUserLogin() {
   generateUserProfile();
   $storiesContainer.show();
 }
+
+// TODO create function for creating user's profile
 
 // * my code for showing user's information
 function generateUserProfile() {
